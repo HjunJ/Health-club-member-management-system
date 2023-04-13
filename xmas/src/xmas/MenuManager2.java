@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class MenuManager2 {
 
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in); 
 		
 		ArrayList<MemberInfo> memberList = new ArrayList<MemberInfo>();
 		int NumAccept = 0;
