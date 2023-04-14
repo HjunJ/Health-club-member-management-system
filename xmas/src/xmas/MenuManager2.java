@@ -35,6 +35,8 @@ public class MenuManager2 {
 							int mPTdate1 = input.nextInt();
 							int mPTdate2 = input.nextInt();
 							memberList.add(new MemberInfo(mname, mage, mmass, mPTdate1, mPTdate2));
+							System.out.println("등록 완료");
+							System.out.println("0을 입력하시면 메뉴로 나갑니다. 추가 등록을 원할 경우 계속해서 입력해주십시오. :");
 							continue;
 						
 						}
