@@ -73,7 +73,7 @@ public class MenuManager2 {
 				
 				System.out.println("메뉴로 나가시려면 0을, 회원 정보를 삭제하시려면 1을 입력하십시오 :");
 				NumAccept = input.nextInt();
-				if(NumAccept == 0) break;
+				if(NumAccept == 0) continue;
 				else if(NumAccept == 1) {
 					System.out.println("PT 회원이라면 1을, 일반 회원이라면 0을 입력하십시오: ");
 					int freeorpt = input.nextInt();
@@ -81,6 +81,9 @@ public class MenuManager2 {
 					
 						System.out.println("목록 전체를 삭제하시려면 0, 특정 번호를 삭제하시려면 멤버 번호를 입력하십시오: ");
 						int deleteAll = input.nextInt();
+						if(deleteAll<0) {
+							continue;
+						}
 						if(deleteAll == 0) {
 							PtmemberList.clear();
 							continue;
@@ -150,7 +153,7 @@ public class MenuManager2 {
 				if(PtmemberList.size() != 0 && FreeMemberList.size() == 0) {
 					System.out.print("\n=========PT회원=========\n");
 					for(int i = 0; i<PtmemberList.size(); i++) {
-						System.out.print("회원 "+(i+1)+": ");
+						System.out.print("회원 "+(i+1)+": \n");
 						PtMember member = PtmemberList.get(i);
 						member.printInfo();	
 					}
@@ -162,7 +165,7 @@ public class MenuManager2 {
 					System.out.println("현재 PT 회원 정보가 없습니다.");
 					System.out.print("\n=========일반회원=========\n");
 					for(int i = 0; i<FreeMemberList.size(); i++) {
-						System.out.print("회원 "+(i+1)+": ");
+						System.out.print("회원 "+(i+1)+": \n");
 						FreeMember member = FreeMemberList.get(i);
 						member.printInfo();	
 					}
@@ -171,13 +174,13 @@ public class MenuManager2 {
 				else {
 					System.out.print("\n=========PT회원=========\n");
 					for(int i = 0; i<PtmemberList.size(); i++) {
-						System.out.print("회원 "+(i+1)+": ");
+						System.out.print("회원 "+(i+1)+": \n");
 						PtMember member = PtmemberList.get(i);
 						member.printInfo();	
 					}
 					System.out.print("\n=========일반회원=========\n");
 					for(int i = 0; i<FreeMemberList.size(); i++) {
-						System.out.print("회원 "+(i+1)+": ");
+						System.out.print("회원 "+(i+1)+": \n");
 						FreeMember member = FreeMemberList.get(i);
 						member.printInfo();	
 					}
