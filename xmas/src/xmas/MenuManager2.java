@@ -152,7 +152,7 @@ public class MenuManager2 {
 					for(int i = 0; i<PtmemberList.size(); i++) {
 						System.out.print("회원 "+(i+1)+": ");
 						PtMember member = PtmemberList.get(i);
-						member.printPTMember();	
+						member.printInfo();	
 					}
 					System.out.print("\n=========일반회원=========\n");
 					System.out.println("현재 일반 회원 정보가 없습니다.");
@@ -164,7 +164,7 @@ public class MenuManager2 {
 					for(int i = 0; i<FreeMemberList.size(); i++) {
 						System.out.print("회원 "+(i+1)+": ");
 						FreeMember member = FreeMemberList.get(i);
-						member.printFreeMember();	
+						member.printInfo();	
 					}
 				}
 				
@@ -173,13 +173,13 @@ public class MenuManager2 {
 					for(int i = 0; i<PtmemberList.size(); i++) {
 						System.out.print("회원 "+(i+1)+": ");
 						PtMember member = PtmemberList.get(i);
-						member.printPTMember();	
+						member.printInfo();	
 					}
 					System.out.print("\n=========일반회원=========\n");
 					for(int i = 0; i<FreeMemberList.size(); i++) {
 						System.out.print("회원 "+(i+1)+": ");
 						FreeMember member = FreeMemberList.get(i);
-						member.printFreeMember();	
+						member.printInfo();	
 					}
 				}
 				

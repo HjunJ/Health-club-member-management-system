@@ -20,8 +20,7 @@ public class PtMember extends MemberInfo{
 		this.PTstartdate = PTstartdate;
 		this.PTenddate = PTenddate;
 	}
-	
-	void printPTMember() {
+	void printInfo() {
 		System.out.println("name: " + name);
 		System.out.println("age: " + age);
 		System.out.println("mass: "+mass);
