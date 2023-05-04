@@ -6,6 +6,13 @@ public class PtMember extends MemberInfo{
 	int PTstartdate;
 	int PTenddate;
 	
+	int getPTstartdate() {
+		return PTstartdate;
+	}
+	int getPTenddate() {
+		return PTenddate;
+	}
+	
 	PtMember(String name, int age, double mass, int PTstartdate, int PTenddate){
 		this.name = name;
 		this.age = age;

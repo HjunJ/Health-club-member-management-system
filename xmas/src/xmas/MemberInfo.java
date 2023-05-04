@@ -14,6 +14,15 @@ public class MemberInfo {
 	}
 	MemberInfo() {
 	}
+	int getAge() {
+		return this.age;
+	}
+	String getName() {
+		return this.name;
+	}
+	double getMass() {
+		return this.mass;
+	}
 	void setInfo() {
 		System.out.println("name: ");
 		this.name = input.next();

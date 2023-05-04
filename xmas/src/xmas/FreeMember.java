@@ -4,8 +4,15 @@ public class FreeMember extends MemberInfo{
 	static int qualify = 0;
 	
 	int firstuse;
-	int lastuse;
 	int term;
+	
+	int getFirstuse() {
+		return firstuse;
+	}
+	
+	int getTerm() {
+		return term;
+	}
 	
 	FreeMember(String name, int age, int firstuse, int term){
 		this.name = name;
