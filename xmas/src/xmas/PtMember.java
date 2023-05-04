@@ -28,4 +28,11 @@ public class PtMember extends MemberInfo{
 		System.out.println("PT finish : " + PTenddate);
 		System.out.println("");
 	}
+	void printInfo(String a) {
+		System.out.println("name: " + name);
+		System.out.println("age: " + age);
+		System.out.println("mass: "+mass);
+		System.out.println("PT start : " + PTstartdate);
+	}
+	
 }

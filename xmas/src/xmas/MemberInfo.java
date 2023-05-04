@@ -3,14 +3,18 @@ package xmas;
 import java.util.Scanner;
 
 public class MemberInfo {
-	String name;
-	int age;
-	double mass;
+	protected String name;
+	protected int age;
+	protected double mass;
 	Scanner input = new Scanner(System.in);
 	MemberInfo(String name, int age, double mass){
 		this.name = name;
 		this.age = age;
 		this.mass = mass;
+	}
+	MemberInfo(String name, int age){
+		this.name = name;
+		this.age = age;
 	}
 	MemberInfo() {
 	}
@@ -43,4 +47,5 @@ public class MemberInfo {
 		this.age = -1;
 		this.mass = -1;
 	}
+	
 }
