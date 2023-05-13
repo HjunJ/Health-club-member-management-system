@@ -21,7 +21,7 @@ public class FreeMember extends MemberInfo{
 		this.term = term;
 	}
 	
-	void printInfo() {
+	public void printInfo() {
 		System.out.println("name: " + name);
 		System.out.println("age: " + age);
 		System.out.println("start date : " + firstuse);

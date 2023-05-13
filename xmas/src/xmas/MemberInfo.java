@@ -2,7 +2,7 @@ package xmas;
 
 import java.util.Scanner;
 
-public class MemberInfo {
+public class MemberInfo extends CommonMember{
 	protected String name;
 	protected int age;
 	protected double mass;
@@ -18,16 +18,16 @@ public class MemberInfo {
 	}
 	MemberInfo() {
 	}
-	int getAge() {
+	public int getAge() {
 		return this.age;
 	}
-	String getName() {
+	public String getName() {
 		return this.name;
 	}
-	double getMass() {
+	public double getMass() {
 		return this.mass;
 	}
-	void setInfo() {
+	public void setInfo() {
 		System.out.println("name: ");
 		this.name = input.next();
 		System.out.println("age: ");
@@ -35,14 +35,14 @@ public class MemberInfo {
 		System.out.println("mass: ");
 		this.mass = input.nextDouble();
 	}
-	void printInfo() {
+	public void printInfo() {
 		System.out.println("");
 		System.out.println("name : " +name);
 		System.out.println(" age : " + age);
 		System.out.println("mass : " + mass);
 		
 	}
-	void initInfo() {
+	public void initInfo() {
 		this.name = null;
 		this.age = -1;
 		this.mass = -1;
