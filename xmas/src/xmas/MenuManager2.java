@@ -133,7 +133,9 @@ public class MenuManager2 {
 						if(freeorpt == 1) {
 							System.out.println("변경할 회원 번호를 입력하십시오: ");
 							int membernum = input.nextInt();
-							
+							if(membernum > PtmemberList.size() || membernum < 1) {
+								throw new IndexOutOfBoundsException();
+							}
 							System.out.println("변경할 회원 정보를 입력하십시오(나이, 이름, 몸무게, PTdate1, PTdate2): ");
 							int mage = input.nextInt();
 							String buffer = input.nextLine();
@@ -152,7 +154,9 @@ public class MenuManager2 {
 						else if(freeorpt == 0) {
 							System.out.println("변경할 회원 번호를 입력하십시오: ");
 							int membernum = input.nextInt();
-							
+							if(membernum > PtmemberList.size() || membernum < 1) {
+								throw new IndexOutOfBoundsException();
+							}
 							System.out.println("변경할 회원 정보를 입력하십시오(나이, 이름, 이용 시작일, 결제 일수): ");
 							int mage = input.nextInt();
 							String buffer = input.nextLine();
