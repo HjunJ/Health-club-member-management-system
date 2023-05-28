@@ -35,9 +35,10 @@ public class MenuManager2 {
 				int a = input.nextInt();
 			
 				if(a == 1) {
-					Date menu1date = new Date();
-					String menu1String = form.format(menu1date) + "	Menu 1\n";
-					fos.write(menu1String.getBytes());				
+					
+					Date menu1 = new Date();
+					String menu1str = form.format(menu1) + "	Menu 1\n";
+					fos.write(menu1str.getBytes());				
 					
 					
 					System.out.println("메뉴로 나가시려면 0을, 회원 입력을 계속하시려면 1을 입력하십시오 :");
