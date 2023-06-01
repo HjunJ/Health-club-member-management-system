@@ -6,4 +6,5 @@
  *
  */
 module xmas {
+	requires java.desktop;
 }

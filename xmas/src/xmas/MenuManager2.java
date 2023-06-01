@@ -1,5 +1,7 @@
 package xmas;
 import java.io.*;
+import javax.swing.*;
+import java.awt.*;
 import java.text.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -7,6 +9,14 @@ import java.time.*;
 public class MenuManager2 {
 
 	public static void main(String[] args) {
+		JFrame jf = new JFrame("Menu Manager");
+		GUITester panel = new GUITester();
+
+		panel.setSize(1000, 500);
+		
+		panel.setVisible(true);
+		
+		
 		Scanner input = new Scanner(System.in); 
 		
 		
