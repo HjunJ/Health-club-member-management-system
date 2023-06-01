@@ -11,11 +11,13 @@ public class MenuManager2 {
 	public static void main(String[] args) {
 		JFrame jf = new JFrame("Menu Manager");
 		GUITester panel = new GUITester();
-
+		
+		
+		
 		panel.setSize(1000, 500);
 		
 		panel.setVisible(true);
-		
+		System.out.println();
 		
 		Scanner input = new Scanner(System.in); 
 		

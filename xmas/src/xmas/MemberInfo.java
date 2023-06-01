@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class MemberInfo extends CommonMember{
 	protected String name;
 	protected int age;
-	protected double mass;
+	protected double weight;
 	Scanner input = new Scanner(System.in);
-	MemberInfo(String name, int age, double mass){
+	MemberInfo(String name, int age, double weight){
 		this.name = name;
 		this.age = age;
-		this.mass = mass;
+		this.weight = weight;
 	}
 	MemberInfo(String name, int age){
 		this.name = name;
@@ -25,7 +25,7 @@ public class MemberInfo extends CommonMember{
 		return this.name;
 	}
 	public double getMass() {
-		return this.mass;
+		return this.weight;
 	}
 	public void setInfo() {
 		System.out.println("name: ");
@@ -33,19 +33,19 @@ public class MemberInfo extends CommonMember{
 		System.out.println("age: ");
 		this.age = input.nextInt();
 		System.out.println("mass: ");
-		this.mass = input.nextDouble();
+		this.weight = input.nextDouble();
 	}
 	public void printInfo() {
 		System.out.println("");
 		System.out.println("name : " +name);
 		System.out.println(" age : " + age);
-		System.out.println("mass : " + mass);
+		System.out.println("weight : " + weight);
 		
 	}
 	public void initInfo() {
 		this.name = null;
 		this.age = -1;
-		this.mass = -1;
+		this.weight = -1;
 	}
 	
 }

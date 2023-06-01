@@ -3,14 +3,17 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
 public class Menu1etc extends JFrame implements ActionListener{
+	PtMember realPTM = new PtMember();
+
 	JPanel jp2 = new JPanel();
 	JLabel jlb1 = new JLabel("Add Member");
 	JTextField[] txtf = new JTextField[5];
-	String[] strr = {"name","age (20, etc..) ","initial weight (kg)" ,"PT start date (yyyymmdd)","PT end date (yyyymmdd)0"};
+	String[] strr = {"name","20","65" ,"20000000","20000000"};
 	JButton addmem = new JButton("Confirm");
 	JButton closing = new JButton("Close");
 	
@@ -20,6 +23,10 @@ public class Menu1etc extends JFrame implements ActionListener{
 	Menu1etc(){
 		
 		super("Add Member");
+
+		realPTM = null;
+		addmem.addActionListener(this);
+		closing.addActionListener(this);
 		insjp1.setLayout(new GridLayout(7,1,10,30));
 		insjp1.add(jlb1);
 		for(int i = 0; i<5; i++) {
@@ -38,14 +45,25 @@ public class Menu1etc extends JFrame implements ActionListener{
 		pack();
 		
 	}
+	PtMember getPtMember() {
+		PtMember PTM = new PtMember();
+		PTM.name = txtf[0].getText();
+		PTM.age = Integer.parseInt(txtf[1].getText());
+		PTM.weight = Double.parseDouble(txtf[2].getText());
+		PTM.PTstartdate = Integer.parseInt(txtf[3].getText());
+		PTM.PTenddate = Integer.parseInt(txtf[4].getText());
+		
+		return PTM;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton btmenu1 = (JButton)e.getSource();
 		if(btmenu1 == addmem) {
-			System.exit(0);
+			realPTM = getPtMember();
+			realPTM.printInfo();
 		}
-		else System.exit(0);
+		else dispose();
 	}
 	
 	

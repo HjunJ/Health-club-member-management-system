@@ -2,6 +2,8 @@ package xmas;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 public class GUITester extends JFrame implements ActionListener{
@@ -11,7 +13,8 @@ public class GUITester extends JFrame implements ActionListener{
 	static JButton[] menu = new JButton[6];
 	static String[] BtnText = {"1. Add Member", "2. Delete Member","3. Edit Member", "4. View Member","5. To Menu","6.Exit Program"};
 	
-	
+	ArrayList<PtMember> PtTestMem = new ArrayList<PtMember>();
+	PtMember PTM = new PtMember();
 	
 	public GUITester() {
 		super("GUITester");
@@ -27,6 +30,11 @@ public class GUITester extends JFrame implements ActionListener{
 		cp.add(jp1);
 		pack();
 	}
+	PtMember getPtMem() {
+		
+		return PTM;
+		
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton bt = (JButton) e.getSource();
@@ -36,6 +44,9 @@ public class GUITester extends JFrame implements ActionListener{
 			Menu1etc menu11 = new Menu1etc();
 			menu11.setVisible(true);
 			menu11.setSize(760,550);
+			
+			
+			
 		}
 		else if(bt == menu[1]) {
 			bt.setText("You selected Menu 2!");

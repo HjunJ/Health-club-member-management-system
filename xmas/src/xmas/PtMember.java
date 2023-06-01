@@ -12,18 +12,20 @@ public class PtMember extends MemberInfo{
 	int getPTenddate() {
 		return PTenddate;
 	}
-	
-	PtMember(String name, int age, double mass, int PTstartdate, int PTenddate){
+	PtMember(){
+		
+	}
+	PtMember(String name, int age, double weight, int PTstartdate, int PTenddate){
 		this.name = name;
 		this.age = age;
-		this.mass = mass;
+		this.weight = weight;
 		this.PTstartdate = PTstartdate;
 		this.PTenddate = PTenddate;
 	}
 	public void printInfo() {
 		System.out.println("name: " + name);
 		System.out.println("age: " + age);
-		System.out.println("mass: "+mass);
+		System.out.println("weight: "+weight);
 		System.out.println("PT start : " + PTstartdate);
 		System.out.println("PT finish : " + PTenddate);
 		System.out.println("");
@@ -31,7 +33,7 @@ public class PtMember extends MemberInfo{
 	void printInfo(String onlystartdate) {
 		System.out.println("name: " + name);
 		System.out.println("age: " + age);
-		System.out.println("mass: "+mass);
+		System.out.println("weight: "+weight);
 		System.out.println("PT start : " + PTstartdate);
 	}
 	
