@@ -1,14 +1,66 @@
 package xmas;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.*;
+
 
 import javax.swing.*;
 
-public class Menu1etc extends JFrame implements ActionListener{
-	PtMember realPTM = new PtMember();
+public class Menu1etc extends JFrame{
+	public Menu1etc() {
+		JPanel panel = new JPanel();
+		JPanel pn2 = new JPanel();
+		
+		panel.setLayout(new SpringLayout());
+		
+		JLabel labelname = new JLabel("ID: ", JLabel.TRAILING);
+		JTextField fieldname = new JTextField(10);	
+		labelname.setLabelFor(fieldname);
+		panel.add(labelname);
+		panel.add(fieldname);
+		
+		JLabel labelage = new JLabel("AGE: ", JLabel.TRAILING);
+		JTextField fieldage = new JTextField(10);	
+		labelage.setLabelFor(fieldage);
+		panel.add(labelage);
+		panel.add(fieldage);
+		
+		JLabel labelstart = new JLabel("PT start date: ", JLabel.TRAILING);
+		JTextField fieldstart = new JTextField(10);	
+		labelstart.setLabelFor(fieldstart);
+		panel.add(labelstart);
+		panel.add(fieldstart);
+		
+		JLabel labelend = new JLabel("PT end date: ", JLabel.TRAILING);
+		JTextField fieldend = new JTextField(10);	
+		labelend.setLabelFor(fieldend);
+		panel.add(labelend);
+		panel.add(fieldend);
+		
+		JLabel labelweight = new JLabel("WEIGHT: ", JLabel.TRAILING);
+		JTextField fieldweight = new JTextField(10);	
+		labelweight.setLabelFor(fieldweight);
+		panel.add(labelweight);
+		panel.add(fieldweight);
+		panel.add(new JButton("Cancel"));
+		panel.add(new JButton("Save"));
+		
+		
+		SpringUtilities.makeCompactGrid(panel, 6,2,6,6,6,6);
+		
+		this.setSize(500,500);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setContentPane(panel);
+		this.setVisible(true);
+		
+		
+	}
+	
+	/*PtMember realPTM = new PtMember();
 
 	JPanel jp2 = new JPanel();
 	JLabel jlb1 = new JLabel("Add Member");
@@ -65,6 +117,7 @@ public class Menu1etc extends JFrame implements ActionListener{
 		}
 		else dispose();
 	}
+	*/
 	
 	
 }

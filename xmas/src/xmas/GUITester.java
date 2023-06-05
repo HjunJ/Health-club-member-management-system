@@ -40,7 +40,6 @@ public class GUITester extends JFrame implements ActionListener{
 		JButton bt = (JButton) e.getSource();
 		
 		if(bt == menu[0]) {
-			bt.setText("You selected Menu 1!");
 			Menu1etc menu11 = new Menu1etc();
 			menu11.setVisible(true);
 			menu11.setSize(760,550);
@@ -55,7 +54,9 @@ public class GUITester extends JFrame implements ActionListener{
 			bt.setText("You selected Menu 3!");
 		}
 		else if(bt == menu[3]) {
-			bt.setText("You selected Menu 4!");
+			Menu4etc menu44 = new Menu4etc();
+			menu44.setVisible(true);
+			menu44.setSize(300,300);
 		}
 		else if(bt == menu[4]) {
 			bt.setText("You selected Menu 5!");
