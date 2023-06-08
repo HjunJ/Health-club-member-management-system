@@ -1,23 +1,21 @@
 package xmas;
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.GridLayout;
+
 import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import javax.swing.*;
 
-
-import javax.swing.*;
-
-public class Menu1etc extends JPanel implements ActionListener{
-	
+public class AddFreeMember extends JPanel implements ActionListener{
 	WindowFrame frame;
 	
 	JButton cancel = new JButton("Cancel");
 	JButton save = new JButton("Save");
 
-	public Menu1etc(WindowFrame frame) {
+	public AddFreeMember(WindowFrame frame) {
 		
 		this.frame=frame;
 		
@@ -41,28 +39,23 @@ public class Menu1etc extends JPanel implements ActionListener{
 		panel.add(labelage);
 		panel.add(fieldage);
 		
-		JLabel labelstart = new JLabel("PT start date: ", JLabel.TRAILING);
+		JLabel labelstart = new JLabel("이용 시작일: ", JLabel.TRAILING);
 		JTextField fieldstart = new JTextField(10);	
 		labelstart.setLabelFor(fieldstart);
 		panel.add(labelstart);
 		panel.add(fieldstart);
 		
-		JLabel labelend = new JLabel("PT end date: ", JLabel.TRAILING);
+		JLabel labelend = new JLabel("이용 기간: ", JLabel.TRAILING);
 		JTextField fieldend = new JTextField(10);	
 		labelend.setLabelFor(fieldend);
 		panel.add(labelend);
 		panel.add(fieldend);
 		
-		JLabel labelweight = new JLabel("WEIGHT: ", JLabel.TRAILING);
-		JTextField fieldweight = new JTextField(10);	
-		labelweight.setLabelFor(fieldweight);
-		panel.add(labelweight);
-		panel.add(fieldweight);
 		panel.add(cancel);
 		panel.add(save);
 		
 		
-		SpringUtilities.makeCompactGrid(panel, 6,2,6,6,6,6);
+		SpringUtilities.makeCompactGrid(panel, 5,2,6,6,6,6);
 		
 
 
@@ -78,7 +71,4 @@ public class Menu1etc extends JPanel implements ActionListener{
 		}
 		else System.exit(0);
 	}
-	
-	
-	
 }

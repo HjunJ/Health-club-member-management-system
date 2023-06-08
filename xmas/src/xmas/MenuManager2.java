@@ -1,6 +1,7 @@
 package xmas;
 import java.io.*;
 import javax.swing.*;
+
 import java.awt.*;
 import java.text.*;
 import java.util.*;
@@ -8,29 +9,31 @@ import java.util.concurrent.TimeUnit;
 import java.time.*;
 public class MenuManager2 {
 
-	public static void main(String[] args) {
-		JFrame jf = new JFrame("Menu Manager");
-		GUITester panel = new GUITester();
+	public static void main(String[] args) {		
 		
-		
-		
-		panel.setSize(1000, 500);
-		
-		panel.setVisible(true);
 		System.out.println();
 		
 		Scanner input = new Scanner(System.in); 
 		
-		
+		MemberManager memberManager = getObject("Membermanager.ser");
 		ArrayList<PtMember> PtmemberList = new ArrayList<PtMember>();
 		ArrayList<FreeMember> FreeMemberList = new ArrayList<FreeMember>();
+		
 		SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
 		int NumAccept = 0;
 		
+		WindowFrame panel = new WindowFrame();
+		panel.setSize(1000, 500);
+		panel.setVisible(true);
+		
 		while(true)  {
 			try{
-				
+				System.out.println(PtmemberList.size() + "\n" + FreeMemberList.size());
+				panel.setWindowArrayPT(PtmemberList);
+				System.out.println("PT성공");
+				panel.setWindowArrayFree(FreeMemberList);
+				System.out.println("Free성공");
 				
 				FileOutputStream fos = new FileOutputStream("LogFile.txt", true);
 				Date d1 = new Date();
@@ -62,19 +65,20 @@ public class MenuManager2 {
 								System.out.println("PT 회원이라면 1을, 자유 이용 회원이라면 0을 입력해주십시오: ");//
 								int freeorpt = input.nextInt();//
 								if(freeorpt != 0 && freeorpt != 1) break;
-								if(freeorpt == 1) {//
+								if(freeorpt == 1) {
 									
 									Date menu1PT = new Date();
 									String menu1PTstr = form.format(menu1PT) + "	Menu1 : Add PT member\n";
 									fos.write(menu1PTstr.getBytes());
 									
 									
-									System.out.println("나이, 이름, 몸무게, PTstart date, PTend date를 입력하십시오: ");
+									System.out.println("id, 나이, 이름, 몸무게, PT시작일, PT 종료일을 입력하십시오: ");
 									System.out.println("0을 입력하시면 메뉴로 나갑니다. ");
 							  
-									int mage = input.nextInt();
-									if(mage == 0) break;
+									int mid = input.nextInt();
+									if(mid == 0) break;
 									else {	
+										int mage = input.nextInt();
 										String buffer = input.nextLine();
 										String mname = input.nextLine();
 										double mmass = input.nextDouble();
@@ -83,7 +87,7 @@ public class MenuManager2 {
 										if(mmass<20 || mage < 1 || mage > 110 ||mPTdate1<20000000 || mPTdate1 > 21000000 ||mPTdate2 <20000000 || mPTdate2 >21000000 || mPTdate1 > mPTdate2) {
 											throw new MyException();
 										}
-										PtmemberList.add(new PtMember(mname, mage, mmass, mPTdate1, mPTdate2)); //
+										PtmemberList.add(new PtMember(mid,mname, mage, mmass, mPTdate1, mPTdate2)); //
 										
 										Date menu1PTmemb = new Date();
 										String menu1PTmembinfo = form.format(menu1PTmemb) + "	Member Added: "+"\n||name: " + mname + "\n||age: " + mage + "\n||mass: " + mmass + "\n||PT start date: " + mPTdate1 + "\n||PT end date: " + mPTdate2+"\n";
@@ -101,12 +105,13 @@ public class MenuManager2 {
 									String menu1FRstr = form.format(menu1FR) + "	Menu1 : Add Free member\n";
 									fos.write(menu1FRstr.getBytes());
 									
-									System.out.println("나이, 이름, 이용 시작일, 결제 일수를 입력하십시오: ");
+									System.out.println("id, 나이, 이름, 이용 시작일, 결제 일수를 입력하십시오: ");
 									System.out.println("0을 입력하시면 메뉴로 나갑니다. ");
 								  
-									int mage = input.nextInt();
-									if(mage == 0) break;
+									int mid = input.nextInt();
+									if(mid == 0) break;
 									else {	
+										int mage = input.nextInt();
 										String buffer = input.nextLine();
 										String mname = input.nextLine();
 										int mfst = input.nextInt();
@@ -114,7 +119,7 @@ public class MenuManager2 {
 										if(mage < 1 || mage > 110 ||mfst<20000000 || mfst > 21000000 ||capable <1 || capable >1000) {
 											throw new MyException();
 										}
-										FreeMemberList.add(new FreeMember(mname, mage, mfst, capable)); //
+										FreeMemberList.add(new FreeMember(mid,mname, mage, mfst, capable));
 										
 										Date menu1FRmemb = new Date();
 										String menu1FRmembinfo = form.format(menu1FRmemb) + "	Member Added: "+ "\n||name: " + mname + "\n||age: " + mage + "\n||Start date: " + mfst + "\n||Available: " + capable+" days\n";
@@ -141,6 +146,7 @@ public class MenuManager2 {
 						continue;
 						
 					}	
+					
 				}		
 				else if(a == 2) {
 					
@@ -237,18 +243,21 @@ public class MenuManager2 {
 							String menu3PTmembnumstr = form.format(menu3PTmembnum) + "	Selected PT member: " + membernum + "\n";
 							fos.write(menu3PTmembnumstr.getBytes());
 							
-							System.out.println("변경할 회원 정보를 입력하십시오(나이, 이름, 몸무게, PTdate1, PTdate2): ");
+							System.out.println("변경할 회원 정보를 입력하십시오(id,나이, 이름, 몸무게, PTdate1, PTdate2): ");
+							
+							int mid = input.nextInt();
 							int mage = input.nextInt();
 							String buffer = input.nextLine();
 							String mname = input.nextLine();
 							double mmass = input.nextDouble();
 							int mPTstartdate = input.nextInt();
 							int mPTenddate = input.nextInt();
+							
 							if(mmass < 20 || mage < 1 || mage > 110 || mPTstartdate<20000000 || mPTstartdate > 21000000 ||mPTenddate > 21000000 || mPTenddate < 2000000 || mPTenddate < mPTstartdate) {
 								throw new MyException();
 							}
 							PtmemberList.remove(membernum-1);
-							PtmemberList.add(membernum-1, new PtMember(mname, mage, mmass, mPTstartdate, mPTenddate));
+							PtmemberList.add(membernum-1, new PtMember(mid,mname, mage, mmass, mPTstartdate, mPTenddate));
 							
 							Date menu3PTmemb = new Date();
 							String menu3PTmembinfo = form.format(menu3PTmemb) + "	Member Edited: "+ "\n||name: " + mname + "\n||age: " + mage + "\n||mass: "+ mmass + "\n||PT start date: " + mPTstartdate + "\n||PT end date: " + mPTenddate;
@@ -272,7 +281,8 @@ public class MenuManager2 {
 							String menu3FRmembnumstr = form.format(menu3FRmembnum) + "	Selected FR member: " + membernum + "\n";
 							fos.write(menu3FRmembnumstr.getBytes());
 							
-							System.out.println("변경할 회원 정보를 입력하십시오(나이, 이름, 이용 시작일, 결제 일수): ");
+							System.out.println("변경할 회원 정보를 입력하십시오(id, 나이, 이름, 이용 시작일, 결제 일수): ");
+							int mid = input.nextInt();
 							int mage = input.nextInt();
 							String buffer = input.nextLine();
 							String mname = input.nextLine();
@@ -282,7 +292,7 @@ public class MenuManager2 {
 								throw new MyException();
 							}
 							FreeMemberList.remove(membernum-1);
-							FreeMemberList.add(membernum-1, new FreeMember(mname, mage, mfirstdate, mcapable));
+							FreeMemberList.add(membernum-1, new FreeMember(mid, mname, mage, mfirstdate, mcapable));
 							
 							Date menu3FRmemb = new Date();
 							String menu3FRmembinfo = form.format(menu3FRmemb) + "	Member Edited: " + "\n||name: " + mname + "\n||age: " + mage + "\n||Start date: " + mfirstdate + "\n||Available: " + mcapable+" days\n";
@@ -374,6 +384,7 @@ public class MenuManager2 {
 			}
 			catch(IndexOutOfBoundsException e) {
 				System.out.println("선택한 번호의 회원이 존재하지 않습니다. 메뉴로 돌아갑니다.");
+				e.printStackTrace();
 				continue;
 			}catch(FileNotFoundException e) {
 				e.printStackTrace();
@@ -385,6 +396,46 @@ public class MenuManager2 {
 			
 		}
 		
+		//WindowFrame panel = new WindowFrame(PtmemberList, FreeMemberList);
+		//panel.setSize(1000, 500);
+		
+		//panel.setVisible(true);
+		
+	}
+
+	public static MemberManager getObject(String filename) {
+		MemberManager memberManager = null;
+		FileInputStream file;
+		try {
+			file = new FileInputStream(filename);
+			ObjectInputStream in = new ObjectInputStream(file);
+			
+			memberManager = (MemberManager)in.readObject();
+			in.close();
+			file.close();
+		}catch(FileNotFoundException e) {
+			return memberManager;
+		}catch(IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return memberManager;
+	}
+	public static void putObject(MemberManager memberManager,String filename) {
+		try {
+			FileOutputStream file = new FileOutputStream(filename);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			
+			out.writeObject(memberManager);
+			out.close();
+			file.close();
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+		}catch(IOException e) {
+			e.printStackTrace();
+		}
+	
 	}
 }
 

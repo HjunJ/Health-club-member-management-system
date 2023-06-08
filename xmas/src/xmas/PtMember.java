@@ -2,10 +2,13 @@ package xmas;
 
 public class PtMember extends MemberInfo{
 	
-	static int qualify = 1;
 	int PTstartdate;
 	int PTenddate;
+	int id;
 	
+	int getId() {
+		return id;
+	}
 	int getPTstartdate() {
 		return PTstartdate;
 	}
@@ -13,14 +16,14 @@ public class PtMember extends MemberInfo{
 		return PTenddate;
 	}
 	PtMember(){
-		
 	}
-	PtMember(String name, int age, double weight, int PTstartdate, int PTenddate){
+	PtMember(int id,String name, int age, double weight, int PTstartdate, int PTenddate){
 		this.name = name;
 		this.age = age;
 		this.weight = weight;
 		this.PTstartdate = PTstartdate;
 		this.PTenddate = PTenddate;
+		this.id = id;
 	}
 	public void printInfo() {
 		System.out.println("name: " + name);
@@ -30,11 +33,6 @@ public class PtMember extends MemberInfo{
 		System.out.println("PT finish : " + PTenddate);
 		System.out.println("");
 	}
-	void printInfo(String onlystartdate) {
-		System.out.println("name: " + name);
-		System.out.println("age: " + age);
-		System.out.println("weight: "+weight);
-		System.out.println("PT start : " + PTstartdate);
-	}
+	
 	
 }

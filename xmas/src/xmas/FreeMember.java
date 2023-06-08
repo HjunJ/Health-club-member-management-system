@@ -5,6 +5,11 @@ public class FreeMember extends MemberInfo{
 	
 	int firstuse;
 	int term;
+	int id;
+	
+	int getId() {
+		return id;
+	}
 	
 	int getFirstuse() {
 		return firstuse;
@@ -13,12 +18,15 @@ public class FreeMember extends MemberInfo{
 	int getTerm() {
 		return term;
 	}
-	
-	FreeMember(String name, int age, int firstuse, int term){
+	FreeMember(){
+		
+	}
+	FreeMember(int id,String name, int age, int firstuse, int term){
 		this.name = name;
 		this.age = age;
 		this.firstuse = firstuse;
 		this.term = term;
+		this.id = id;
 	}
 	
 	public void printInfo() {

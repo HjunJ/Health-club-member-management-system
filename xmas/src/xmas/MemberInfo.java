@@ -24,17 +24,10 @@ public class MemberInfo extends CommonMember{
 	public String getName() {
 		return this.name;
 	}
-	public double getMass() {
+	public double getWeight() {
 		return this.weight;
 	}
-	public void setInfo() {
-		System.out.println("name: ");
-		this.name = input.next();
-		System.out.println("age: ");
-		this.age = input.nextInt();
-		System.out.println("mass: ");
-		this.weight = input.nextDouble();
-	}
+	
 	public void printInfo() {
 		System.out.println("");
 		System.out.println("name : " +name);
@@ -47,5 +40,6 @@ public class MemberInfo extends CommonMember{
 		this.age = -1;
 		this.weight = -1;
 	}
+	
 	
 }
